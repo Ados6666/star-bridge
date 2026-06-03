@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import type { Animal } from '../data/types'
 
@@ -8,37 +8,25 @@ function getCandleCount(animalId: string): number {
   const stored = localStorage.getItem(`${STORAGE_PREFIX}${animalId}`)
   return stored ? parseInt(stored, 10) : 0
 }
-function hasLitCandle(animalId: string): boolean {
-  return localStorage.getItem(`${STORAGE_PREFIX}${animalId}_lit`) === 'true'
-}
 
 export default function AnimalCard({ animal }: { animal: Animal }) {
   const [count, setCount] = useState(0)
-  const [lit, setLit] = useState(false)
-  const [lighting, setLighting] = useState(false)
+  const [bigFlame, setBigFlame] = useState(false)
 
   useEffect(() => {
     setCount(getCandleCount(animal.id))
-    setLit(hasLitCandle(animal.id))
   }, [animal.id])
 
-  const handleLight = (e: React.MouseEvent) => {
+  // Each click increments count + gives flame grow feedback
+  const handleClick = useCallback((e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    if (lit || lighting) return
-    setLighting(true)
     const newCount = count + 1
     localStorage.setItem(`${STORAGE_PREFIX}${animal.id}`, newCount.toString())
-    localStorage.setItem(`${STORAGE_PREFIX}${animal.id}_lit`, 'true')
     setCount(newCount)
-    setTimeout(() => { setLit(true); setLighting(false) }, 600)
-  }
-
-  // Generate spark directions for animation
-  const sparks = Array.from({ length: 5 }, (_, i) => ({
-    '--sx': `${(Math.random() - 0.5) * 30}px`,
-    '--sy': `${-10 - Math.random() * 15}px`,
-  } as React.CSSProperties))
+    setBigFlame(true)
+    setTimeout(() => setBigFlame(false), 400)
+  }, [animal.id, count])
 
   return (
     <Link to={`/animal/${animal.id}`} className="animal-card no-underline">
@@ -60,27 +48,19 @@ export default function AnimalCard({ animal }: { animal: Animal }) {
       {/* Short intro */}
       <div className="card-intro">{animal.introduction.slice(0, 40)}</div>
 
-      {/* Candle button */}
+      {/* Candle — always lit, click = big flame */}
       <div className="candle-btn-wrap">
         <button
-          className={`candle-btn ${lit ? 'lit' : ''} ${lighting ? 'lighting' : ''}`}
-          onClick={handleLight}
-          disabled={lit}
-          title={lit ? '你已经点亮蜡烛了 ✨' : '点击点亮蜡烛'}
+          className={`candle-btn lit${bigFlame ? ' big-flame' : ''}`}
+          onClick={handleClick}
+          title="点击为它送上一份祝福"
         >
           {/* Glow ring */}
           <div className="candle-glow-ring" />
 
-          {/* Flame */}
+          {/* Flame — always shown, grows on click */}
           <div className="candle-flame">
             <div className="flame-inner" />
-          </div>
-
-          {/* Spark burst on lighting */}
-          <div className="spark-burst">
-            {sparks.map((style, i) => (
-              <div key={i} className="spark-particle" style={style} />
-            ))}
           </div>
 
           {/* Candle body */}

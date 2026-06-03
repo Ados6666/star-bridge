@@ -39,12 +39,12 @@ export default function SuggestPage() {
 
   if (submitted) {
     return (
-      <div className="py-20 text-center max-w-lg mx-auto">
-        <span className="text-5xl pixel-text">✨</span>
-        <h2 className="text-2xl text-[#e8a840] pixel-text mt-4 mb-2">
+      <div className="py-20" style={{ textAlign: 'center', maxWidth: 480, margin: '0 auto' }}>
+        <span className="text-5xl inline-block">✨</span>
+        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'Yozai', sans-serif" }}>
           感谢你的建议！
         </h2>
-        <p className="text-sm text-[#c4a97d] mb-6 leading-relaxed">
+        <p className="text-sm text-[#c0a870] mb-6 leading-relaxed" style={{ fontFamily: "'Yozai', sans-serif" }}>
           我们已经收到了你的提交。每一份建议都会被认真对待——
           也许下一个来到星桥的小伙伴，就来自你的推荐。
         </p>
@@ -59,14 +59,14 @@ export default function SuggestPage() {
   }
 
   return (
-    <div className="py-8 max-w-xl mx-auto">
+    <div className="py-8" style={{ maxWidth: 560, margin: '0 auto' }}>
       {/* Header */}
-      <div className="text-center mb-8">
-        <span className="text-4xl pixel-text">💡</span>
-        <h2 className="text-2xl text-[#e8a840] pixel-text mt-4 mb-2">
+      <div style={{ textAlign: 'center' }} className="mb-8">
+        <span className="text-4xl inline-block">💡</span>
+        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'Yozai', sans-serif" }}>
           建议新增动物
         </h2>
-        <p className="text-sm text-[#c4a97d] leading-relaxed">
+        <p className="text-sm text-[#c0a870] leading-relaxed" style={{ fontFamily: "'Yozai', sans-serif" }}>
           你觉得还有哪些离开的小动物值得被记住？
           <br />
           请告诉我们，我们会认真评估每一条建议。
@@ -91,7 +91,7 @@ export default function SuggestPage() {
             name="animal_name"
             required
             placeholder="例如：大壮"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none"
           />
         </div>
 
@@ -104,7 +104,7 @@ export default function SuggestPage() {
             type="text"
             name="species"
             placeholder="例如：橘猫、大熊猫、黑帽悬猴"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none"
           />
         </div>
 
@@ -118,7 +118,7 @@ export default function SuggestPage() {
             required
             rows={4}
             placeholder="请简要说说这只动物的故事、为什么它值得被记住……"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none resize-y font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none resize-y"
           />
         </div>
 
@@ -131,7 +131,7 @@ export default function SuggestPage() {
             type="url"
             name="source_url"
             placeholder="新闻报道、视频链接等（可选）"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none"
           />
         </div>
 
@@ -144,7 +144,7 @@ export default function SuggestPage() {
             type="text"
             name="nickname"
             placeholder="怎么称呼你？"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none"
           />
         </div>
 
@@ -157,7 +157,7 @@ export default function SuggestPage() {
             type="email"
             name="email"
             placeholder="如需回复请留下邮箱"
-            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none font-[PixelZh]"
+            className="w-full px-4 py-2.5 bg-[#1a1a2e]/80 border-2 border-[#e8a840]/30 text-[#e2e8f0] text-sm placeholder-[#c4a97d]/40 focus:border-[#e8a840] focus:outline-none"
           />
         </div>
 

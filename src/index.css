@@ -1,23 +1,15 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 
-/* ===== 像素字体（保留作点缀） ===== */
-@font-face {
-  font-family: 'PixelZh';
-  src: url('https://cdn.jsdelivr.net/npm/zpix@3.1.8/dist/Zpix.woff2') format('woff2');
-  font-display: swap;
-}
+/* ===== 悠哉字体 — 温暖手写 ===== */
+@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-yozai/font.min.css');
 
-/* ===== 全局变量 — 星空蓝主题 ===== */
+/* ===== 全局变量 — 星空蓝 + 暖色调 ===== */
 :root {
   --bg-deep: #060d1a;
   --bg-night: #0b1a30;
-  --bg-starry: #0f1f3d;
   --pixel-gold: #e8a840;
   --candle-glow: #ffcd6a;
-  --star-blue: #7eb8da;
-  --star-white: #e8edf2;
-  --text-soft: #dce6f0;
+  --text-soft: #e8e0d0;
   --text-warm: #f0d9a0;
 }
 
@@ -27,14 +19,13 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'ZCOOL KuaiLe', 'PixelZh', 'Microsoft YaHei', sans-serif;
-  background: radial-gradient(ellipse at 50% 30%, #0f1f3d 0%, #0b1a30 50%, #060d1a 100%);
+  font-family: 'Yozai', 'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif;
+  background: radial-gradient(ellipse at 50% 25%, #132544 0%, #0b1a30 55%, #060d1a 100%);
   background-attachment: fixed;
   color: var(--text-soft);
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  letter-spacing: 0.5px;
 }
 
 #root {
@@ -44,29 +35,27 @@ body {
   align-items: center;
 }
 
+/* ===== 通用居中容器 ===== */
+.centered-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 /* ===== 像素边框装饰 ===== */
 .pixel-border {
   border: 3px solid var(--pixel-gold);
   box-shadow: inset 0 0 0 2px rgba(232, 168, 64, 0.15), 0 0 16px rgba(232, 168, 64, 0.12);
-  position: relative;
-}
-.pixel-border::after {
-  content: '';
-  position: absolute;
-  inset: -5px;
-  border: 1px solid rgba(232, 168, 64, 0.25);
-  pointer-events: none;
 }
 
 /* ===== 像素按钮 ===== */
 .pixel-btn {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-family: 'Yozai', sans-serif;
   background: linear-gradient(180deg, #f0b84c 0%, #d4942a 100%);
   color: #3d1f00;
   border: none;
   padding: 10px 24px;
   cursor: pointer;
-  letter-spacing: 1px;
   font-size: 15px;
   box-shadow: 3px 3px 0 #6b4c1a, 0 0 12px rgba(232, 168, 64, 0.2);
   transition: all 0.1s;
@@ -89,9 +78,7 @@ body {
   text-align: center;
   transition: transform 0.2s ease;
 }
-.animal-card:hover {
-  transform: translateY(-4px);
-}
+.animal-card:hover { transform: translateY(-4px); }
 
 /* 照片框 */
 .photo-frame {
@@ -99,12 +86,11 @@ body {
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
-  border: 4px solid #e8a840;
-  border-radius: 8px;
+  border: 3px solid #e8a840;
+  border-radius: 10px;
   box-shadow:
-    0 0 0 2px rgba(232, 168, 64, 0.3),
-    0 0 24px rgba(232, 168, 64, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 0 0 2px rgba(232, 168, 64, 0.25),
+    0 0 20px rgba(232, 168, 64, 0.12);
   background: #0b1a30;
 }
 .photo-frame img {
@@ -116,20 +102,19 @@ body {
 
 /* 名字 */
 .card-name {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-family: 'Yozai', sans-serif;
   font-size: 22px;
   color: #f0d080;
   margin-top: 10px;
-  text-shadow: 0 0 8px rgba(232, 168, 64, 0.3);
 }
 
 /* 一句话介绍 */
 .card-intro {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-family: 'Yozai', sans-serif;
   font-size: 13px;
-  color: #a0b8d0;
+  color: #c0a870;
   margin-top: 4px;
-  max-width: 200px;
+  max-width: 220px;
   line-height: 1.5;
 }
 
@@ -139,139 +124,100 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
 }
 .candle-btn {
   position: relative;
-  width: 36px;
-  height: 52px;
+  width: 40px;
+  height: 56px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   transition: transform 0.15s;
+  outline: none;
 }
-.candle-btn:hover { transform: scale(1.1); }
+.candle-btn:hover { transform: scale(1.08); }
 .candle-btn:active { transform: scale(0.95); }
-.candle-btn:disabled { cursor: default; opacity: 0.6; }
-.candle-btn:disabled:hover { transform: none; }
 
 /* 蜡烛身体 */
 .candle-body {
   position: absolute;
-  bottom: 0;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 28px;
-  background: linear-gradient(180deg, #f5e6c8 0%, #e8d5a0 30%, #d4b866 100%);
-  border-radius: 2px 2px 0 0;
-}
-.candle-body::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 3px;
-  width: 2px;
-  height: 6px;
-  background: #c4a040;
+  width: 16px;
+  height: 30px;
+  background: linear-gradient(180deg, #f5e6c8 0%, #e8d5a0 30%, #d4b866 70%, #c4a848 100%);
+  border-radius: 3px 3px 0 0;
 }
 
 /* 蜡烛底座 */
 .candle-base {
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 22px;
-  height: 6px;
-  background: linear-gradient(180deg, #8b6d4a, #6b4c2a);
-  border-radius: 1px;
+  width: 26px;
+  height: 7px;
+  background: linear-gradient(180deg, #9b7d5a, #7b5d3a);
+  border-radius: 2px;
 }
 
-/* 火焰（未点燃时隐藏） */
+/* 火焰 — 默认点燃 */
 .candle-flame {
   position: absolute;
-  top: -8px;
+  top: 4px;
   left: 50%;
   transform: translateX(-50%);
-  display: none;
+  display: block;
+  transition: transform 0.3s ease;
 }
-.candle-btn.lit .candle-flame { display: block; }
-.candle-btn.lit .candle-body {
-  background: linear-gradient(180deg, #f8f0d8 0%, #eedca8 40%, #d4b866 100%);
+.candle-btn.big-flame .candle-flame {
+  transform: translateX(-50%) scale(1.5);
 }
 
 .flame-inner {
-  width: 10px;
-  height: 14px;
-  background: radial-gradient(ellipse at 50% 70%, #ffcd6a 0%, #f5a020 60%, transparent 100%);
+  width: 12px;
+  height: 16px;
+  background: radial-gradient(ellipse at 50% 70%, #ffdd80 0%, #ffb020 50%, transparent 100%);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  animation: flameFlicker 0.2s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(255, 180, 40, 0.7), 0 0 16px rgba(255, 160, 20, 0.3);
+  animation: flameFlicker 0.25s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 180, 40, 0.8), 0 0 20px rgba(255, 150, 20, 0.4);
+  position: relative;
+  z-index: 2;
 }
 
-/* 烛光光晕 */
+/* 光晕 */
 .candle-glow-ring {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 40, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 180, 40, 0.12) 0%, transparent 70%);
   pointer-events: none;
-  display: none;
-}
-.candle-btn.lit .candle-glow-ring {
-  display: block;
-  animation: glowPulse 2s ease-in-out infinite;
-}
-
-/* 点燃火花动画 */
-.spark-burst {
-  position: absolute;
-  top: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-}
-.candle-btn.lighting .spark-burst { display: block; }
-.spark-particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #ffcd6a;
-  border-radius: 50%;
-  animation: sparkOut 0.5s ease-out forwards;
 }
 
 /* 计数文字 */
 .candle-count {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
-  font-size: 11px;
-  color: #a0b8d0;
+  font-family: 'Yozai', sans-serif;
+  font-size: 12px;
+  color: #b0a080;
   text-align: center;
 }
 
 /* ===== 动画关键帧 ===== */
 @keyframes flameFlicker {
   0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
-  25%  { transform: scaleY(0.85) scaleX(1.1); opacity: 0.85; }
-  50%  { transform: scaleY(1.05) scaleX(0.95); opacity: 0.95; }
-  75%  { transform: scaleY(0.9) scaleX(1.05); opacity: 0.9; }
-}
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
-}
-@keyframes sparkOut {
-  0% { opacity: 1; transform: translate(0, 0) scale(1); }
-  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0); }
+  25%  { transform: scaleY(0.85) scaleX(1.08); opacity: 0.85; }
+  50%  { transform: scaleY(1.06) scaleX(0.93); opacity: 0.95; }
+  75%  { transform: scaleY(0.9) scaleX(1.04); opacity: 0.9; }
 }
 
-/* ===== 星空粒子画布 ===== */
+/* ===== 星空画布 ===== */
 #star-canvas {
   position: fixed;
   top: 0;
@@ -282,7 +228,7 @@ body {
   z-index: 0;
 }
 
-/* ===== 页面内容层级 ===== */
+/* ===== 页面层级 ===== */
 .page-content {
   position: relative;
   z-index: 1;
@@ -302,7 +248,7 @@ body {
     transparent 3px,
     transparent 7px
   );
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 /* ===== 滚动条 ===== */
@@ -310,15 +256,15 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb { background: rgba(232, 168, 64, 0.3); border-radius: 3px; }
 
-/* ===== 链接全局 ===== */
+/* ===== 链接 ===== */
 a { color: var(--pixel-gold); text-decoration: none; }
 a:hover { color: var(--candle-glow); }
 
-/* ===== 导航链接 ===== */
+/* ===== 导航 ===== */
 .nav-link {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-family: 'Yozai', sans-serif;
   font-size: 15px;
-  color: #7eb8da;
+  color: #c0a870;
   padding: 6px 14px;
   transition: all 0.15s;
   border-bottom: 2px solid transparent;
