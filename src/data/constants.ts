@@ -1,0 +1,6 @@
+export const SITE_NAME = '星桥'
+export const SITE_NAME_EN = 'Animal StarBridge'
+export const SITE_DESCRIPTION = '记住那些来过我们生命的小动物'
+export const ADMIN_EMAIL = 'Ados.guo@gmail.com'
+export const ADMIN_NAME = 'Ados'
+export const WEB3FORMS_KEY = 'be396de7-eade-4ded-8f43-79a3085def12'

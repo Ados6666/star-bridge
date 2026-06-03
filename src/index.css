@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* ===== 像素字体 ===== */
+@font-face {
+  font-family: 'PixelZh';
+  src: url('https://cdn.jsdelivr.net/npm/zpix@3.1.8/dist/Zpix.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ===== 全局变量 ===== */
+:root {
+  --bg-deep: #1a1a2e;
+  --bg-night: #2d1b2e;
+  --pixel-gold: #e8a840;
+  --candle-glow: #ffcd6a;
+  --grass-green: #6b8c42;
+  --wood-brown: #8b6d4a;
+  --text-soft: #e2e8f0;
+  --text-parchment: #c4a97d;
+  --card-glass: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== 基础样式 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'PixelZh', 'Courier New', monospace;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-night) 100%);
+  color: var(--text-soft);
+  min-height: 100vh;
+  overflow-x: hidden;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== 像素边框 ===== */
+.pixel-border {
+  border: 2px solid var(--pixel-gold);
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 168, 64, 0.3),
+    0 0 12px rgba(232, 168, 64, 0.15);
+}
+
+/* ===== 像素按钮 ===== */
+.pixel-btn {
+  font-family: 'PixelZh', monospace;
+  background: var(--pixel-gold);
+  color: var(--bg-deep);
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.1s steps(1);
+  box-shadow: 3px 3px 0 #6b4c1a;
+}
+
+.pixel-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #6b4c1a;
+  background: #f0b84c;
+}
+
+.pixel-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+/* ===== 像素卡片 ===== */
+.pixel-card {
+  background: var(--card-glass);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(232, 168, 64, 0.3);
+  transition: all 0.1s steps(1);
+  cursor: pointer;
+}
+
+.pixel-card:hover {
+  border-color: var(--pixel-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 168, 64, 0.15);
+}
+
+/* ===== 像素文字效果 ===== */
+.pixel-text {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-glow {
+  text-shadow:
+    0 0 10px rgba(255, 205, 106, 0.5),
+    0 0 20px rgba(255, 205, 106, 0.3);
+}
+
+/* ===== 像素装饰线 ===== */
+.pixel-divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pixel-gold) 0px,
+    var(--pixel-gold) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.4;
+}
+
+/* ===== 星空粒子画布 ===== */
+#star-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  image-rendering: pixelated;
+}
+
+/* ===== 页面内容层级 ===== */
+.page-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* ===== 烛光动画 ===== */
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  25% { opacity: 0.9; transform: scaleY(0.95); }
+  50% { opacity: 1; transform: scaleY(1.02); }
+  75% { opacity: 0.95; transform: scaleY(0.98); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 205, 106, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 205, 106, 0.6); }
+}
+
+/* ===== 滚动条像素化 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-gold);
+  border: 1px solid var(--bg-deep);
+}
+
+/* ===== 页面过渡 ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
