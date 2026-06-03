@@ -1,51 +1,96 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import type { Animal } from '../data/types'
 
+const STORAGE_PREFIX = 'starbridge_candle_'
+
+function getCandleCount(animalId: string): number {
+  const stored = localStorage.getItem(`${STORAGE_PREFIX}${animalId}`)
+  return stored ? parseInt(stored, 10) : 0
+}
+function hasLitCandle(animalId: string): boolean {
+  return localStorage.getItem(`${STORAGE_PREFIX}${animalId}_lit`) === 'true'
+}
+
 export default function AnimalCard({ animal }: { animal: Animal }) {
+  const [count, setCount] = useState(0)
+  const [lit, setLit] = useState(false)
+  const [lighting, setLighting] = useState(false)
+
+  useEffect(() => {
+    setCount(getCandleCount(animal.id))
+    setLit(hasLitCandle(animal.id))
+  }, [animal.id])
+
+  const handleLight = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (lit || lighting) return
+    setLighting(true)
+    const newCount = count + 1
+    localStorage.setItem(`${STORAGE_PREFIX}${animal.id}`, newCount.toString())
+    localStorage.setItem(`${STORAGE_PREFIX}${animal.id}_lit`, 'true')
+    setCount(newCount)
+    setTimeout(() => { setLit(true); setLighting(false) }, 600)
+  }
+
+  // Generate spark directions for animation
+  const sparks = Array.from({ length: 5 }, (_, i) => ({
+    '--sx': `${(Math.random() - 0.5) * 30}px`,
+    '--sy': `${-10 - Math.random() * 15}px`,
+  } as React.CSSProperties))
+
   return (
-    <Link
-      to={`/animal/${animal.id}`}
-      className="no-underline pixel-card rounded-lg overflow-hidden flex flex-col h-full"
-    >
-      {/* Cover Image */}
-      <div className="relative w-full aspect-[4/3] bg-[#1a1a2e] overflow-hidden">
+    <Link to={`/animal/${animal.id}`} className="animal-card no-underline">
+      {/* Photo frame */}
+      <div className="photo-frame">
         <img
           src={animal.coverImage}
           alt={animal.name}
-          className="w-full h-full object-cover"
           loading="lazy"
           onError={(e) => {
-            // Fallback: pixel-style placeholder
-            const t = e.target as HTMLImageElement
-            t.style.display = 'none'
-            if (t.parentElement) {
-              t.parentElement.classList.add('flex', 'items-center', 'justify-center')
-              t.parentElement.innerHTML = `<span style="font-size:48px">🐾</span>`
-            }
+            (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%230b1a30" width="200" height="200"/><text x="100" y="105" text-anchor="middle" font-size="60">🐾</text></svg>'
           }}
         />
-        {/* Type badge */}
-        <span className="absolute top-2 right-2 px-2 py-0.5 text-xs bg-[#1a1a2e]/80 text-[#e8a840] border border-[#e8a840]/40">
-          {animal.tags[0]}
-        </span>
       </div>
 
-      {/* Info */}
-      <div className="p-4 flex flex-col gap-2 flex-1">
-        <div className="flex items-baseline gap-2">
-          <h3 className="text-lg text-[#e8a840] pixel-text m-0">
-            {animal.name}
-          </h3>
-          <span className="text-xs text-[#c4a97d]">{animal.species}</span>
-        </div>
-        <p className="text-sm text-[#e2e8f0]/70 leading-relaxed line-clamp-2 m-0">
-          {animal.introduction}
-        </p>
-        <div className="mt-auto pt-2 flex items-center justify-between text-xs text-[#c4a97d]">
-          <span>{animal.age || animal.deathDate}</span>
-          <span className="text-[#e8a840] pixel-text">
-            🕯️ 缅怀 &gt;
-          </span>
+      {/* Name */}
+      <div className="card-name">{animal.name}</div>
+
+      {/* Short intro */}
+      <div className="card-intro">{animal.introduction.slice(0, 40)}</div>
+
+      {/* Candle button */}
+      <div className="candle-btn-wrap">
+        <button
+          className={`candle-btn ${lit ? 'lit' : ''} ${lighting ? 'lighting' : ''}`}
+          onClick={handleLight}
+          disabled={lit}
+          title={lit ? '你已经点亮蜡烛了 ✨' : '点击点亮蜡烛'}
+        >
+          {/* Glow ring */}
+          <div className="candle-glow-ring" />
+
+          {/* Flame */}
+          <div className="candle-flame">
+            <div className="flame-inner" />
+          </div>
+
+          {/* Spark burst on lighting */}
+          <div className="spark-burst">
+            {sparks.map((style, i) => (
+              <div key={i} className="spark-particle" style={style} />
+            ))}
+          </div>
+
+          {/* Candle body */}
+          <div className="candle-body" />
+          <div className="candle-base" />
+        </button>
+
+        {/* Candle count */}
+        <div className="candle-count">
+          点亮蜡烛的小伙伴：{count}人
         </div>
       </div>
     </Link>

@@ -11,7 +11,7 @@ export const animals: Animal[] = [
     age: '约2岁',
     coverImage: '/photos/wu-kong/cover.jpg',
     photos: [],
-    introduction: '一只被博主赵朔收养的流浪橘猫，随主人穿越新疆的雪山、戈壁与河谷，用一路的爪印证明了最野的冒险属于最自由的灵魂。',
+    introduction: '一只流浪橘猫的逆袭——它跟着主人骑过雪山戈壁，走完了最自由的猫生。',
     story: '',
     funFacts: [
       '被赵朔在新疆骑行途中捡到，从此成为"骑行猫"',
@@ -36,7 +36,7 @@ export const animals: Animal[] = [
     age: '约11岁',
     coverImage: '/photos/da-zhuang/cover.jpg',
     photos: [],
-    introduction: '一只因"国字脸"走红全网的黑帽悬猴，方方正正的脸型让全国人民忍俊不禁，是合肥野生动物园最出圈的明星。',
+    introduction: '国字脸表情包鼻祖，合肥动物园最方的那只猴。',
     story: '',
     funFacts: [
       '因为脸型方正被网友称为"最像人类的猴子"',
@@ -61,7 +61,7 @@ export const animals: Animal[] = [
     age: '约15岁（相当于人类90岁高龄）',
     coverImage: '/photos/a-zhai/cover.jpg',
     photos: [],
-    introduction: '重庆动物园的亚洲金猫，国家一级保护动物。因为爱窝在巢箱里不出门，被保育员亲昵地称为"阿宅"。它用一生守护着自己的小天地，也守护了我们对珍稀动物的关注。',
+    introduction: '顶级宅男，国家一级保护动物，比大熊猫还珍稀的亚洲金猫。',
     story: '',
     funFacts: [
       '名字"阿宅"来自它爱窝在巢箱里的习惯——真正的"宅男"本宅',
@@ -86,7 +86,7 @@ export const animals: Animal[] = [
     age: '约3岁',
     coverImage: '/photos/sun-da-niang/cover.jpg',
     photos: [],
-    introduction: '中国第一只人工繁育成活的兔狲。它的出生本身就是奇迹——在此之前，国内兔狲的人工繁育从未成功。狲大娘短暂的一生，为这个珍稀物种的保护留下了宝贵的经验。',
+    introduction: '中国第一只人工繁育成活的兔狲宝宝，出生即奇迹。',
     story: '',
     funFacts: [
       '国内首只人工繁育成活的兔狲，出生即载入保护纪录',
@@ -110,7 +110,7 @@ export const animals: Animal[] = [
     age: '23岁（相当于人类70多岁）',
     coverImage: '/photos/cheng-gong/cover.jpg',
     photos: [],
-    introduction: '顶流大熊猫"花花"和"和叶"的妈妈，成都大熊猫繁育研究基地的英雄母亲。因为一身雪白的皮毛被叫作"洁癖公主"。它养育了 5 胎 9 个宝宝，把爱与萌传递给了全世界。',
+    introduction: '顶流花花和和叶的妈妈，爱吃竹子爱干净的英雄母亲。',
     story: '',
     funFacts: [
       '是全网顶流熊猫"花花"和"和叶"的妈妈',
@@ -137,7 +137,7 @@ export const animals: Animal[] = [
     age: '7岁半',
     coverImage: '/photos/sun-si-miao/cover.jpg',
     photos: [],
-    introduction: '中国唯一一只圈养的雄性兔狲，西宁野生动物园的当家明星。因丰富的表情被称为"行走的表情包"。它的存在让无数人第一次认识了兔狲这个物种。',
+    introduction: '中国唯一圈养雄性兔狲，行走的表情包，兔狲界的顶流。',
     story: '',
     funFacts: [
       '中国唯一一只圈养的雄性兔狲，肩负着物种科普的使命',

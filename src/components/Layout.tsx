@@ -8,19 +8,22 @@ import PixelBackground from './PixelBackground'
 export default function Layout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation()
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      width: '100%',
+      alignItems: 'center',
+    }}>
       <PixelBackground />
       <Header />
-      <main className="page-content flex-1 px-4 md:px-8 pb-12">
-        <div className="max-w-5xl mx-auto">
-          {children}
-        </div>
+      <main className="page-content" style={{ flex: 1, width: '100%', maxWidth: 960, padding: '0 16px' }}>
+        {children}
       </main>
       <Footer />
     </div>
