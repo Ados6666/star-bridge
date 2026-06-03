@@ -19,7 +19,7 @@ export default function Header() {
             ⭐
           </span>
           <div>
-            <h1 className="text-lg md:text-xl text-[#f0d080] m-0 leading-tight" style={{ fontFamily: "'ZCOOL KuaiLe', sans-serif" }}>
+            <h1 className="text-lg md:text-xl text-[#f0d080] m-0 leading-tight" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
               {SITE_NAME}
             </h1>
             <p className="text-xs text-[#7eb8da] m-0 leading-tight">

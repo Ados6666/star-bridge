@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* ===== 悠哉字体 — 温暖手写 ===== */
-@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-yozai/font.min.css');
+/* ===== 霞鹜文楷 — 真实钢笔手写体 ===== */
+@import url('https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css');
 
 /* ===== 全局变量 — 星空蓝 + 暖色调 ===== */
 :root {
@@ -19,7 +19,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Yozai', 'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif;
+  font-family: 'LXGW WenKai', 'LXGW WenKai', 'Microsoft YaHei', sans-serif;
   background: radial-gradient(ellipse at 50% 25%, #132544 0%, #0b1a30 55%, #060d1a 100%);
   background-attachment: fixed;
   color: var(--text-soft);
@@ -50,7 +50,7 @@ body {
 
 /* ===== 像素按钮 ===== */
 .pixel-btn {
-  font-family: 'Yozai', sans-serif;
+  font-family: 'LXGW WenKai', sans-serif;
   background: linear-gradient(180deg, #f0b84c 0%, #d4942a 100%);
   color: #3d1f00;
   border: none;
@@ -102,7 +102,7 @@ body {
 
 /* 名字 */
 .card-name {
-  font-family: 'Yozai', sans-serif;
+  font-family: 'LXGW WenKai', sans-serif;
   font-size: 22px;
   color: #f0d080;
   margin-top: 10px;
@@ -110,7 +110,7 @@ body {
 
 /* 一句话介绍 */
 .card-intro {
-  font-family: 'Yozai', sans-serif;
+  font-family: 'LXGW WenKai', sans-serif;
   font-size: 13px;
   color: #c0a870;
   margin-top: 4px;
@@ -203,7 +203,7 @@ body {
 
 /* 计数文字 */
 .candle-count {
-  font-family: 'Yozai', sans-serif;
+  font-family: 'LXGW WenKai', sans-serif;
   font-size: 12px;
   color: #b0a080;
   text-align: center;
@@ -262,7 +262,7 @@ a:hover { color: var(--candle-glow); }
 
 /* ===== 导航 ===== */
 .nav-link {
-  font-family: 'Yozai', sans-serif;
+  font-family: 'LXGW WenKai', sans-serif;
   font-size: 15px;
   color: #c0a870;
   padding: 6px 14px;

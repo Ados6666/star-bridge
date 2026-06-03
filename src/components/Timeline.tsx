@@ -4,7 +4,7 @@ const TYPE_ICONS: Record<TimelineEvent['type'], string> = {
   birth: '🌟', milestone: '📍', fame: '⭐', memory: '💛', farewell: '🕯️',
 }
 
-const fontStyle = { fontFamily: "'ZCOOL KuaiLe', sans-serif" }
+const fontStyle = { fontFamily: "'LXGW WenKai', sans-serif" }
 
 export default function Timeline({ events }: { events: TimelineEvent[] }) {
   return (

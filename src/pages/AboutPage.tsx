@@ -3,8 +3,8 @@ import { ADMIN_EMAIL, ADMIN_NAME } from '../data/constants'
 import { ABOUT } from '../data/content'
 
 export default function AboutPage() {
-  const sc = { fontFamily: "'Yozai', sans-serif", textAlign: 'center' as const }
-  const h3s = { fontFamily: "'Yozai', sans-serif" }
+  const sc = { fontFamily: "'LXGW WenKai', sans-serif", textAlign: 'center' as const }
+  const h3s = { fontFamily: "'LXGW WenKai', sans-serif" }
   const txt = 'text-sm text-[#d0c8b8]/80 leading-relaxed'
 
   return (

@@ -1,7 +1,7 @@
 import { ADMIN_NAME, ADMIN_EMAIL, SITE_NAME } from '../data/constants'
 
 export default function Footer() {
-  const footerStyle = { fontFamily: "'ZCOOL KuaiLe', sans-serif" }
+  const footerStyle = { fontFamily: "'LXGW WenKai', sans-serif" }
 
   return (
     <footer className="w-full py-6 px-4 relative z-10 text-center" style={{ maxWidth: 960 }}>

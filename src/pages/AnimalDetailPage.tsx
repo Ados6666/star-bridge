@@ -3,7 +3,7 @@ import { animals } from '../data/animals'
 import Timeline from '../components/Timeline'
 import PhotoGallery from '../components/PhotoGallery'
 
-const h3Style = { fontFamily: "'ZCOOL KuaiLe', sans-serif" }
+const h3Style = { fontFamily: "'LXGW WenKai', sans-serif" }
 
 export default function AnimalDetailPage() {
   const { id } = useParams<{ id: string }>()

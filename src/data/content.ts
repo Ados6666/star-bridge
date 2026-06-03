@@ -7,7 +7,7 @@
 export const HOME = {
   heroStar: '⭐',
   title: '星桥',
-  subtitle: '记住那些来过我们生命的小动物',
+  subtitle: '记住那些温暖过我们人生的伙伴',
   description: '它们来过、被爱过、留下过痕迹。这里是它们的星之归处——一座连接人间与动物星球的温暖桥梁。',
   gridTitle: '🕯️ 星桥上的小伙伴们',
   footerQuote: '「它们没有消失，只是走过了那座星光之桥。每当有人点亮烛光，夜空就多了一颗星。」',
@@ -87,6 +87,7 @@ export const SUGGEST = {
   continueBtn: '继续提交',
   privacyTitle: '🔒 隐私声明',
   privacy1: '你提交的信息仅用于网站内容更新参考。昵称和邮箱为非必填项。我们不会公开你的提交内容，不会将信息用于任何商业用途，也不会分享给第三方。提交即表示你同意我们基于你提供的信息进行内容更新。',
+  privacy1b: '本网站使用 IP 地址仅用于防止蜡烛重复计数，不存储或分析任何个人数据，不上传浏览行为。',
   privacy2: '如需撤回建议或删除已提交的信息，请发送邮件至',
   privacy3: '我们将在 48 小时内处理。本表单使用 Web3Forms 作为邮件转发服务。',
   errorNoKey: '⚠️ 表单尚未配置 Web3Forms Access Key，请先获取 Key 后再使用。',

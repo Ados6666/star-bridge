@@ -3,31 +3,62 @@ import { Link } from 'react-router-dom'
 import type { Animal } from '../data/types'
 import { CARD } from '../data/content'
 
-const STORAGE_PREFIX = 'starbridge_candle_'
+const LOCLIT_KEY = 'sb_lit_'
 
-function getCandleCount(animalId: string): number {
-  const stored = localStorage.getItem(`${STORAGE_PREFIX}${animalId}`)
-  return stored ? parseInt(stored, 10) : 0
+// Check local flag: has this browser already submitted to this animal?
+function wasLitLocally(animalId: string): boolean {
+  return localStorage.getItem(`${LOCLIT_KEY}${animalId}`) === '1'
+}
+function markLitLocally(animalId: string) {
+  localStorage.setItem(`${LOCLIT_KEY}${animalId}`, '1')
+}
+
+async function fetchCount(animalId: string): Promise<number> {
+  try {
+    const res = await fetch(`/api/candle/${animalId}`)
+    if (!res.ok) return 0
+    const data = await res.json()
+    return data.count ?? 0
+  } catch { return 0 }
+}
+
+async function lightCandle(animalId: string): Promise<{ count: number; alreadyLit: boolean }> {
+  try {
+    const res = await fetch(`/api/candle/${animalId}`, { method: 'POST' })
+    if (!res.ok) return { count: 0, alreadyLit: false }
+    return await res.json()
+  } catch { return { count: 0, alreadyLit: false } }
 }
 
 export default function AnimalCard({ animal }: { animal: Animal }) {
   const [count, setCount] = useState(0)
   const [bigFlame, setBigFlame] = useState(false)
+  const [lit, setLit] = useState(false)
+  const [loading, setLoading] = useState(false)
 
+  // Load count on mount
   useEffect(() => {
-    setCount(getCandleCount(animal.id))
+    fetchCount(animal.id).then(setCount)
+    setLit(wasLitLocally(animal.id))
   }, [animal.id])
 
-  // Each click increments count + gives flame grow feedback
-  const handleClick = useCallback((e: React.MouseEvent) => {
+  const handleClick = useCallback(async (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    const newCount = count + 1
-    localStorage.setItem(`${STORAGE_PREFIX}${animal.id}`, newCount.toString())
-    setCount(newCount)
+    if (loading) return
+
+    setLoading(true)
+    const result = await lightCandle(animal.id)
+    setCount(result.count)
+
+    if (!result.alreadyLit) {
+      markLitLocally(animal.id)
+      setLit(true)
+    }
+
     setBigFlame(true)
-    setTimeout(() => setBigFlame(false), 400)
-  }, [animal.id, count])
+    setTimeout(() => { setBigFlame(false); setLoading(false) }, 400)
+  }, [animal.id, loading])
 
   return (
     <Link to={`/animal/${animal.id}`} className="animal-card no-underline">

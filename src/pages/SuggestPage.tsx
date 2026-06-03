@@ -41,10 +41,10 @@ export default function SuggestPage() {
     return (
       <div className="py-20" style={{ textAlign: 'center', maxWidth: 480, margin: '0 auto' }}>
         <span className="text-5xl inline-block">✨</span>
-        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'Yozai', sans-serif" }}>
+        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
           感谢你的建议！
         </h2>
-        <p className="text-sm text-[#c0a870] mb-6 leading-relaxed" style={{ fontFamily: "'Yozai', sans-serif" }}>
+        <p className="text-sm text-[#c0a870] mb-6 leading-relaxed" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
           我们已经收到了你的提交。每一份建议都会被认真对待——
           也许下一个来到星桥的小伙伴，就来自你的推荐。
         </p>
@@ -63,10 +63,10 @@ export default function SuggestPage() {
       {/* Header */}
       <div style={{ textAlign: 'center' }} className="mb-8">
         <span className="text-4xl inline-block">💡</span>
-        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'Yozai', sans-serif" }}>
+        <h2 className="text-2xl text-[#f0d080] mt-4 mb-2" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
           建议新增动物
         </h2>
-        <p className="text-sm text-[#c0a870] leading-relaxed" style={{ fontFamily: "'Yozai', sans-serif" }}>
+        <p className="text-sm text-[#c0a870] leading-relaxed" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
           你觉得还有哪些离开的小动物值得被记住？
           <br />
           请告诉我们，我们会认真评估每一条建议。

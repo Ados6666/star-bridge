@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Photo } from '../data/types'
 
-const fontStyle = { fontFamily: "'ZCOOL KuaiLe', sans-serif" }
+const fontStyle = { fontFamily: "'LXGW WenKai', sans-serif" }
 
 export default function PhotoGallery({ photos }: { photos: Photo[] }) {
   const [lightbox, setLightbox] = useState<number | null>(null)

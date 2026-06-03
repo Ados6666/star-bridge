@@ -4,7 +4,7 @@ import AnimalCard from './AnimalCard'
 export default function AnimalGrid({ animals }: { animals: Animal[] }) {
   if (animals.length === 0) {
     return (
-      <p className="text-center text-[#7eb8da] py-12" style={{ fontFamily: "'ZCOOL KuaiLe', sans-serif" }}>
+      <p className="text-center text-[#7eb8da] py-12" style={{ fontFamily: "'LXGW WenKai', sans-serif" }}>
         还没有小伙伴入驻星桥……
       </p>
     )

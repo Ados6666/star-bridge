@@ -1,8 +1,9 @@
 import { animals } from '../data/animals'
 import { HOME } from '../data/content'
 import AnimalGrid from '../components/AnimalGrid'
+import { StarBridgeLogo } from '../components/Logo'
 
-const s = { fontFamily: "'Yozai', sans-serif", textAlign: 'center' as const }
+const s = { fontFamily: "'LXGW WenKai', sans-serif", textAlign: 'center' as const }
 
 export default function HomePage() {
   const sorted = [...animals].sort(
@@ -11,11 +12,9 @@ export default function HomePage() {
 
   return (
     <div className="py-8" style={{ maxWidth: 960, margin: '0 auto' }}>
-      <section className="py-10 md:py-16" style={s}>
-        <span className="text-5xl md:text-6xl inline-block">{HOME.heroStar}</span>
-        <h2 className="text-3xl md:text-4xl text-[#f0d080] my-3" style={s}>{HOME.title}</h2>
-        <p className="text-base md:text-lg text-[#c0a870] mb-1" style={s}>{HOME.subtitle}</p>
-        <p className="text-sm text-[#a09070] leading-relaxed" style={{ ...s, maxWidth: 480, margin: '0 auto' }}>{HOME.description}</p>
+      {/* Hero with combined logo */}
+      <section className="py-10 md:py-14" style={s}>
+        <StarBridgeLogo />
       </section>
 
       <div className="pixel-divider" />
