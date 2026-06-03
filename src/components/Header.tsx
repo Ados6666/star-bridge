@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import { SITE_NAME, SITE_NAME_EN } from '../data/constants'
+import { NAV } from '../data/content'
 
-const NAV = [
-  { to: '/', label: '🏠 星桥' },
-  { to: '/about', label: '📖 关于' },
-  { to: '/suggest', label: '💡 建议' },
+const NAV_ITEMS = [
+  { to: '/', label: NAV.home },
+  { to: '/about', label: NAV.about },
+  { to: '/suggest', label: NAV.suggest },
 ]
 
 export default function Header() {
@@ -28,7 +29,7 @@ export default function Header() {
         </Link>
 
         <nav className="flex gap-1 md:gap-4">
-          {NAV.map(({ to, label }) => {
+          {NAV_ITEMS.map(({ to, label }) => {
             const active = to === '/'
               ? pathname === '/'
               : pathname.startsWith(to)

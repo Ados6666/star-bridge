@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import type { Animal } from '../data/types'
+import { CARD } from '../data/content'
 
 const STORAGE_PREFIX = 'starbridge_candle_'
 
@@ -70,7 +71,7 @@ export default function AnimalCard({ animal }: { animal: Animal }) {
 
         {/* Candle count */}
         <div className="candle-count">
-          点亮蜡烛的小伙伴：{count}人
+          {CARD.candleCountText(count)}
         </div>
       </div>
     </Link>
